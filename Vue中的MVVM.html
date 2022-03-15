@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue中的MVVM</title>
+    <!--    引入Vue-->
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+    <body>
+        <!--
+            MVVM模型
+                1.M：模型（Model）：data中的数据
+                2.V：视图（View）：模板代码
+                3.VM：视图模型（ViewModel）:Vue实例
+            观察发现
+                1.data中所有的属性，最后都出现在了vm身上
+                2.vm身上的所有属性，及Vue原型上的所有属性，在Vue模板中都可以直接使用
+
+        -->
+
+        <!-- 准备好一个容器 -->
+        <div id="root">
+            <h1>hi, {{name}}</h1>
+            <h1>test, {{1+1}}</h1>
+            <h1>test, {{$options}}</h1>
+
+        </div>
+
+
+        <script type="text/javascript">
+            Vue.config.productionTip = false
+
+            // 创建Vue实例
+            const v = new Vue({
+                //el:'#root', // 第一种写法
+                data:{
+                    name:"dlf",
+                    url:"http://www.baidu.com",
+                },
+            })
+            v.$mount('#root')
+
+        </script>
+    </body>
+</html>
